@@ -6,6 +6,7 @@ import { Avatar, Button } from "react-native-paper";
 import SearchModal from "../components/SearchModal";
 import ProductCart from "../components/ProductCart";
 import { useNavigation } from "@react-navigation/native";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const navigate = useNavigation();
@@ -36,6 +37,17 @@ const Home = () => {
       images: [
         {
           url: "https://pngimg.com/uploads/headphones/small/headphones_PNG101967.png",
+        },
+      ],
+    },
+    {
+      name: "Phone",
+      price: "2500",
+      _id: "26158",
+      stock: 10,
+      images: [
+        {
+          url: "https://i.ibb.co/wRfXDw3/image.png",
         },
       ],
     },
@@ -119,8 +131,8 @@ const Home = () => {
             ))}
           </ScrollView>
         </View>
-        {/* Products*/}
 
+        {/* Products*/}
         <View style={{ flex: 1 }}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {products.map((product, index) => (
@@ -139,6 +151,9 @@ const Home = () => {
           </ScrollView>
         </View>
       </View>
+
+      {/* Footer */}
+      <Footer activeRoute="home"/>
     </>
   );
 };
