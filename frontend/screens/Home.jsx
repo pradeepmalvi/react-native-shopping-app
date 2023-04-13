@@ -20,7 +20,7 @@ const Home = () => {
   const products = [
     {
       name: "Earbuds",
-      price: "2000",
+      price: "1999",
       _id: "w34535",
       stock: 10,
       images: [
@@ -31,7 +31,7 @@ const Home = () => {
     },
     {
       name: "Headphones",
-      price: "1200",
+      price: "1399",
       _id: "45gfd",
       stock: 10,
       images: [
@@ -41,13 +41,13 @@ const Home = () => {
       ],
     },
     {
-      name: "Phone",
-      price: "2500",
+      name: "Watch",
+      price: "2999",
       _id: "26158",
       stock: 10,
       images: [
         {
-          url: "https://i.ibb.co/wRfXDw3/image.png",
+          url: "https://cdn.shopify.com/s/files/1/0997/6284/products/1.1_165afbbc-34fc-4eeb-8f7e-c30e2bfec61d.png?v=1662181675",
         },
       ],
     },
@@ -153,7 +153,7 @@ const Home = () => {
       </View>
 
       {/* Footer */}
-      <Footer activeRoute="home"/>
+      <Footer activeRoute="home" />
     </>
   );
 };
