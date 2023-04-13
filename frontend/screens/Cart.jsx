@@ -11,8 +11,9 @@ import Header from "../components/Header";
 import Heading from "../components/Heading";
 import { Button } from "react-native-paper";
 import CartItem from "../components/CartItem";
+import { useNavigation } from "@react-navigation/native";
 
-const cartItems = [
+export const cartItems = [
   {
     name: "Earbuds",
     price: "1999",
@@ -51,10 +52,11 @@ const cartItems = [
   },
 ];
 
-const incrementHandler = () => {};
-const decrementHandler = () => {};
-
 const Cart = () => {
+  const navigate = useNavigation();
+
+  const incrementHandler = () => {};
+  const decrementHandler = () => {};
   return (
     <View style={{ ...defaultStyle, padding: 0 }}>
       {/* Header */}
@@ -86,9 +88,14 @@ const Cart = () => {
           paddingHorizontal: 35,
         }}
       >
-        <Text>Cart</Text>
+        <Text style={{ fontSize: 18, fontWeight: "900" }}>5 Items</Text>
+        <Text style={{ fontSize: 18, fontWeight: "900" }}>₹25000</Text>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={
+          cartItems.length > 0 ? () => navigate.navigate("checkout") : null
+        }
+      >
         <Button
           style={{
             backgroundColor: colors.color3,
