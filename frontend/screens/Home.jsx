@@ -7,6 +7,7 @@ import SearchModal from "../components/SearchModal";
 import ProductCart from "../components/ProductCart";
 import { useNavigation } from "@react-navigation/native";
 import Footer from "../components/Footer";
+import Heading from "../components/Heading";
 
 const Home = () => {
   const navigate = useNavigation();
@@ -36,7 +37,7 @@ const Home = () => {
       stock: 10,
       images: [
         {
-          url: "https://pngimg.com/uploads/headphones/small/headphones_PNG101967.png",
+          url: "https://www.pngplay.com/wp-content/uploads/13/Wireless-Headphones-PNG-HD-Quality.png",
         },
       ],
     },
@@ -51,6 +52,18 @@ const Home = () => {
         },
       ],
     },
+    {
+      name: "IPhone",
+      price: "59999",
+      _id: "164884",
+      stock: 10,
+      images: [
+        {
+          url: "https://www.att.com/idpassets/global/devices/phones/apple/apple-iphone-14-pro/carousel/deeppurple/deeppurple1.png",
+        },
+      ],
+    },
+    
   ];
 
   const [category, setCategory] = useState();
@@ -85,10 +98,7 @@ const Home = () => {
           }}
         >
           {/* Heading */}
-          <View>
-            <Text style={{ fontSize: 25 }}>Our </Text>
-            <Text style={{ fontSize: 25, fontWeight: "900" }}>Products</Text>
-          </View>
+          <Heading text1={"Our"} text2={"Products"} /> 
           {/* Search Bar */}
           <View>
             <TouchableOpacity onPress={() => setActiveSearch((prev) => !prev)}>

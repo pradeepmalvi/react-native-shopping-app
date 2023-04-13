@@ -81,6 +81,8 @@ const ProductCart = ({
           <Button
             onPress={() => addToCartHandler(id, stock)}
             textColor={index % 2 === 0 ? colors.color1 : colors.color2}
+            icon="cart"
+            labelStyle={{ fontWeight: "900" }}
           >
             Add To Cart
           </Button>
