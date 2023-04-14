@@ -15,25 +15,26 @@ const Checkout = () => {
   const tax = 0.18 * itemsPrice;
   const totalAmount = itemsPrice + shippingCharges + tax;
   return (
-    <View style={defaultStyle}>
+    <View style={{ ...defaultStyle, padding: 0 }}>
       <Header back={true} />
       <Heading
         text1="Confirm"
         text2="Order"
-        containerStyle={{ paddingTop: 70 }}
+        containerStyle={{ paddingTop: 70, marginLeft: 35 }}
       />
-      <View style={{ paddingVertical: 20, flex: 1 }}>
+      <View style={{ paddingVertical: 20, paddingHorizontal: 20, flex: 1 }}>
         <ScrollView>
           {cartItems.map((product, index) => (
             <CheckoutItem product={product} index={index} key={index} />
           ))}
         </ScrollView>
       </View>
-      <PriceTag heading={"Subtotal"} value={itemsPrice} />
-      <PriceTag heading={"Shipping"} value={shippingCharges} />
-      <PriceTag heading={"tax"} value={tax} />
-      <PriceTag heading={"Total"} value={totalAmount} />
-
+      <View style={{ paddingHorizontal: 35 }}>
+        <PriceTag heading={"Subtotal"} value={itemsPrice} />
+        <PriceTag heading={"Shipping"} value={shippingCharges} />
+        <PriceTag heading={"tax"} value={tax} />
+        <PriceTag heading={"Total"} value={totalAmount} />
+      </View>
       <TouchableOpacity
         onPress={() =>
           navigate.navigate("payment", {
@@ -49,12 +50,11 @@ const Checkout = () => {
             backgroundColor: colors.color3,
             borderRadius: 100,
             padding: 5,
-            margin: 10,
+            margin: 30,
           }}
           textColor={colors.color2}
           icon={"chevron-right"}
-        >
-          {" "}
+        > 
           Payment
         </Button>
       </TouchableOpacity>
