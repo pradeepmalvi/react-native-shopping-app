@@ -21,10 +21,10 @@ const Payment = ({ route, navigation }) => {
   const onlineHandler = () => {};
 
   return (
-    <View style={defaultStyle}>
+    <View style={{ ...defaultStyle, padding: 0 }}>
       <Header back={true} />
       <Heading
-        containerStyle={{ paddingTop: 70 }}
+        containerStyle={{ paddingTop: 70, marginLeft: 35 }}
         text1="Payment"
         text2="Method"
       />
@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     flex: 1,
     justifyContent: "center",
+    marginHorizontal:35
   },
   radioStyle: {
     flexDirection: "row",
@@ -91,8 +92,8 @@ const styles = StyleSheet.create({
   btn: {
     backgroundColor: colors.color3,
     borderRadius: 100,
-    margin: 10,
     padding: 5,
+    margin: 30,
   },
 });
 

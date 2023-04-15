@@ -16,13 +16,12 @@ export const defaultStyle = StyleSheet.create({
   paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   flex: 1,
   backgroundColor: colors.color2,
+  justifyContent:"flex-end"
 });
 
 export const inputStyling = StyleSheet.create({
-  height: 50,
-  backgroundColor: colors.color2,
-  marginVertical: 10,
   marginHorizontal: 20,
+  marginVertical:10,
 });
 
 export const formHeading = {
