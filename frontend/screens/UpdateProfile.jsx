@@ -1,14 +1,9 @@
-import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React, { useState } from "react";
-import {
-  colors,
-  defaultImg,
-  defaultStyle,
-  inputStyling,
-} from "../styles/styles";
+import { colors, defaultStyle, inputStyling } from "../styles/styles";
 import { StyleSheet } from "react-native";
-import { Avatar, Button, TextInput } from "react-native-paper";
-import Footer from "../components/Footer";
+import { Button, TextInput } from "react-native-paper";
+import Header from "../components/Header";
 
 const inputOptions = {
   style: {
@@ -19,49 +14,32 @@ const inputOptions = {
   outlineColor: colors.color5,
 };
 
-const SignUp = ({ navigation }) => {
-  const [avatar, setAvatar] = useState("");
+const UpdateProfile = ({ navigation }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [country, setCountry] = useState("");
   const [pincode, setPincode] = useState("");
 
   const disabledSignUp =
-    !name || !email || !password || !address || !city || !country || !pincode;
+    !name || !email || !address || !city || !country || !pincode;
 
   const loading = false;
 
   const submitHandler = () => {};
   return (
     <View style={{ flex: 1, backgroundColor: colors.color2 }}>
+      <Header back={true} />
       <View
         style={{ ...defaultStyle, padding: 0, backgroundColor: colors.color1 }}
       >
         <ScrollView>
           <View style={styles.container}>
             <View>
-              <Text style={styles.heading}>Sign Up</Text>
+              <Text style={styles.heading}>Edit Profile </Text>
             </View>
-            <Avatar.Image
-              style={{
-                alignSelf: "center",
-                backgroundColor: colors.color1,
-                elevation: 8,
-              }}
-              size={80}
-              source={{ uri: avatar ? avatar : defaultImg }}
-            />
-            <TouchableOpacity onPress={() => navigation.navigate("camera")}>
-              <Button
-                textColor={colors.color3}
-                labelStyle={{ fontWeight: "900" }}
-              >
-                Change Photo
-              </Button>
-            </TouchableOpacity>
+
             <TextInput
               {...inputOptions}
               placeholder="Name"
@@ -74,13 +52,6 @@ const SignUp = ({ navigation }) => {
               value={email}
               onChangeText={setEmail}
               keyboardType="email-address"
-            />
-            <TextInput
-              {...inputOptions}
-              placeholder="Password"
-              value={password}
-              onChangeText={setPassword}
-              secureTextEntry={true}
             />
             <TextInput
               {...inputOptions}
@@ -105,7 +76,7 @@ const SignUp = ({ navigation }) => {
               placeholder="Pincode"
               value={pincode}
               onChangeText={setPincode}
-            /> 
+            />
 
             <Button
               loading={loading}
@@ -115,23 +86,8 @@ const SignUp = ({ navigation }) => {
               labelStyle={{ fontWeight: "900" }}
               onPress={submitHandler}
             >
-              Sign Up
+              Update Profile
             </Button>
-
-            <View style={styles.link}>
-              <Text style={{ fontSize: 16 }}>Already have an account?</Text>
-              <Button onPress={() => navigation.navigate("login")}>
-                <Text
-                  style={{
-                    fontSize: 16,
-                    color: colors.color1,
-                    fontWeight: "900",
-                  }}
-                >
-                  Login
-                </Text>
-              </Button>
-            </View>
           </View>
         </ScrollView>
       </View>
@@ -182,4 +138,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUp;
+export default UpdateProfile;
