@@ -3,7 +3,13 @@ import React from "react";
 import { colors } from "../styles/styles";
 import { Avatar } from "react-native-paper";
 
-const CartItem = ({ product, index, incrementHandler, decrementHandler }) => {
+const CartItem = ({
+  product,
+  index,
+  incrementHandler,
+  decrementHandler,
+  navigate,
+}) => {
   return (
     <View style={{ flexDirection: "row", height: 100, marginVertical: 20 }}>
       <View
@@ -32,7 +38,11 @@ const CartItem = ({ product, index, incrementHandler, decrementHandler }) => {
           justifyContent: "center",
         }}
       >
-        <Text numberOfLines={1} style={{ fontSize: 18 }}>
+        <Text
+          numberOfLines={1}
+          style={{ fontSize: 18 }}
+          onPress={() => navigate.navigate("productdetails", { product })}
+        >
           {product.name}
         </Text>
         <Text numberOfLines={1} style={{ fontSize: 18, fontWeight: "900" }}>

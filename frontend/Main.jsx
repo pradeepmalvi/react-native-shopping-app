@@ -8,6 +8,9 @@ import Cart from "./screens/Cart";
 import Checkout from "./screens/Checkout";
 import Payment from "./screens/Payment";
 import Login from "./screens/Login";
+import ForgetPassword from "./screens/ForgetPassword";
+import VerifyPassword from "./screens/VerifyPassword";
+import SignUp from "./screens/SignUp";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +28,9 @@ const Main = () => {
           <Stack.Screen name="checkout" component={Checkout} />
           <Stack.Screen name="payment" component={Payment} />
           <Stack.Screen name="login" component={Login} />
+          <Stack.Screen name="signup" component={SignUp} />
+          <Stack.Screen name="forgetpassword" component={ForgetPassword} />
+          <Stack.Screen name="verifypassword" component={VerifyPassword} />
         </Stack.Group>
       </Stack.Navigator>
 

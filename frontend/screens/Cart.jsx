@@ -77,6 +77,7 @@ const Cart = () => {
               product={product}
               incrementHandler={incrementHandler}
               decrementHandler={decrementHandler}
+              navigate={navigate}
             ></CartItem>
           ))}
         </ScrollView>

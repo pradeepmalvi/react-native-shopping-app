@@ -14,13 +14,15 @@ const inputOptions = {
   outlineColor: colors.color5,
 };
 
-const Login = ({ navigation }) => {
+const ForgetPassword = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const loading = false;
 
-  const submitHandler = () => {};
+  const submitHandler = () => {
+    navigation.navigate("verifypassword");
+  };
   return (
     <View style={{ flex: 1, backgroundColor: colors.color2 }}>
       <View
@@ -28,7 +30,7 @@ const Login = ({ navigation }) => {
       >
         <View style={styles.container}>
           <View>
-            <Text style={styles.heading}>Login</Text>
+            <Text style={styles.heading}>Forget Password</Text>
           </View>
           <TextInput
             {...inputOptions}
@@ -37,35 +39,21 @@ const Login = ({ navigation }) => {
             onChangeText={setEmail}
             keyboardType="email-address"
           />
-          <TextInput
-            {...inputOptions}
-            placeholder="Password"
-            value={password}
-            onChangeText={setPassword}
-            secureTextEntry={true}
-          />
-          <TouchableOpacity
-            style={styles.forget}
-            onPress={() => navigation.navigate("forgetpassword")}
-            activeOpacity={0.8}
-          >
-            <Text>Forget Password?</Text>
-          </TouchableOpacity>
 
           <Button
             loading={loading}
             textColor={colors.color2}
-            disabled={email === "" || password === ""}
+            disabled={email === ""}
             style={styles.btn}
             labelStyle={{ fontWeight: "900" }}
             onPress={submitHandler}
           >
-            Login
+            Send OTP
           </Button>
 
           <View style={styles.link}>
-            <Text style={{ fontSize: 16 }}>Don't have any account?</Text>
-            <Button onPress={() => navigation.navigate("signup")}>
+            <Text style={{ fontSize: 16 }}>Go to</Text>
+            <Button onPress={() => navigation.navigate("login")}>
               <Text
                 style={{
                   fontSize: 16,
@@ -73,12 +61,13 @@ const Login = ({ navigation }) => {
                   fontWeight: "900",
                 }}
               >
-                Sign Up
+                Login
               </Text>
             </Button>
           </View>
         </View>
-      </View> 
+      </View>
+      <Footer activeRoute="profile" />
     </View>
   );
 };
@@ -124,4 +113,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default ForgetPassword;
