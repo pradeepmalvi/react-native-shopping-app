@@ -16,7 +16,7 @@ export const defaultStyle = StyleSheet.create({
   paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   flex: 1,
   backgroundColor: colors.color2,
-  justifyContent:"flex-end"
+  justifyContent:"flex-start"
 });
 
 export const inputStyling = StyleSheet.create({

@@ -7,7 +7,7 @@ const Loader = () => {
   return (
     <ActivityIndicator
       style={{ top: "50%", position: "absolute", alignSelf: "center" }}
-      size={100}
+      size={40}
       color={colors.color3}
     ></ActivityIndicator>
   );
