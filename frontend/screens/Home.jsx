@@ -9,6 +9,57 @@ import { useNavigation } from "@react-navigation/native";
 import Footer from "../components/Footer";
 import Heading from "../components/Heading";
 
+export const products = [
+  {
+    name: "Earbuds",
+    price: "1999",
+    _id: "w34535",
+    stock: 10,
+    category: "Electronics",
+    images: [
+      {
+        url: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/grey_916612cd-a8da-408e-8ec6-b177df5fa727_1.png?v=1658150489",
+      },
+    ],
+  },
+  {
+    name: "Headphones",
+    price: "1399",
+    _id: "45gfd",
+    category: "Electronics",
+    stock: 10,
+    images: [
+      {
+        url: "https://www.pngplay.com/wp-content/uploads/13/Wireless-Headphones-PNG-HD-Quality.png",
+      },
+    ],
+  },
+  {
+    name: "Watch",
+    price: "2999",
+    _id: "26158",
+    category: "Wearables",
+    stock: 10,
+    images: [
+      {
+        url: "https://cdn.shopify.com/s/files/1/0997/6284/products/1.1_165afbbc-34fc-4eeb-8f7e-c30e2bfec61d.png?v=1662181675",
+      },
+    ],
+  },
+  {
+    name: "IPhone",
+    price: "59999",
+    _id: "164884",
+    category: "Phone",
+    stock: 10,
+    images: [
+      {
+        url: "https://www.att.com/idpassets/global/devices/phones/apple/apple-iphone-14-pro/carousel/deeppurple/deeppurple1.png",
+      },
+    ],
+  },
+];
+
 const Home = () => {
   const navigate = useNavigation();
 
@@ -16,54 +67,6 @@ const Home = () => {
     { category: "Men", _id: "12325" },
     { category: "Women", _id: "i3u23" },
     { category: "Kids", _id: "i5483" },
-  ];
-
-  const products = [
-    {
-      name: "Earbuds",
-      price: "1999",
-      _id: "w34535",
-      stock: 10,
-      images: [
-        {
-          url: "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/grey_916612cd-a8da-408e-8ec6-b177df5fa727_1.png?v=1658150489",
-        },
-      ],
-    },
-    {
-      name: "Headphones",
-      price: "1399",
-      _id: "45gfd",
-      stock: 10,
-      images: [
-        {
-          url: "https://www.pngplay.com/wp-content/uploads/13/Wireless-Headphones-PNG-HD-Quality.png",
-        },
-      ],
-    },
-    {
-      name: "Watch",
-      price: "2999",
-      _id: "26158",
-      stock: 10,
-      images: [
-        {
-          url: "https://cdn.shopify.com/s/files/1/0997/6284/products/1.1_165afbbc-34fc-4eeb-8f7e-c30e2bfec61d.png?v=1662181675",
-        },
-      ],
-    },
-    {
-      name: "IPhone",
-      price: "59999",
-      _id: "164884",
-      stock: 10,
-      images: [
-        {
-          url: "https://www.att.com/idpassets/global/devices/phones/apple/apple-iphone-14-pro/carousel/deeppurple/deeppurple1.png",
-        },
-      ],
-    },
-    
   ];
 
   const [category, setCategory] = useState();
@@ -98,7 +101,7 @@ const Home = () => {
           }}
         >
           {/* Heading */}
-          <Heading text1={"Our"} text2={"Products"} /> 
+          <Heading text1={"Our"} text2={"Products"} />
           {/* Search Bar */}
           <View>
             <TouchableOpacity onPress={() => setActiveSearch((prev) => !prev)}>
