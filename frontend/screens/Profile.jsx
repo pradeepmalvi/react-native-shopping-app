@@ -77,7 +77,6 @@ const Profile = ({ navigation }) => {
           <View
             style={{
               flexDirection: "row",
-              justifyContent: "space-between",
             }}
           >
             <View>
@@ -103,7 +102,7 @@ const Profile = ({ navigation }) => {
                 </Button>
               </TouchableOpacity>
             </View>
-            <View style={{ marginTop: 15 }}>
+            <View style={{ marginTop: 15, marginLeft: 20 }}>
               <Text style={{ fontSize: 20, fontWeight: "900" }}>{name}</Text>
               <Text style={{ fontWeight: "300" }}>{email}</Text>
             </View>
@@ -149,7 +148,7 @@ const Profile = ({ navigation }) => {
           </View>
         </View>
       </View>
-      <Footer activeRoute="profile"/>
+      <Footer activeRoute="profile" />
     </View>
   );
 };

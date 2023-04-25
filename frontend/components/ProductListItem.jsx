@@ -5,8 +5,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 
 const ProductListItem = ({
-  product,
-  key,
+  product, 
   navigation,
   deleteHandler,
   index,

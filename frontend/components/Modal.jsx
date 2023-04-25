@@ -36,7 +36,7 @@ const Modal = ({ product, navigation, deleteHandler, setOpenModal }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width: 200,
+    width: "100%",
     height: 200,
     alignSelf: "center",
     justifyContent: "center",
