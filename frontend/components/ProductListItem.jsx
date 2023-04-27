@@ -3,13 +3,9 @@ import React from "react";
 import { colors } from "../styles/styles";
 import { useState } from "react";
 import Modal from "./Modal";
+import { Button } from "react-native-paper";
 
-const ProductListItem = ({
-  product, 
-  navigation,
-  deleteHandler,
-  index,
-}) => {
+const ProductListItem = ({ product, navigation, deleteHandler, index }) => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -57,10 +53,30 @@ const ProductListItem = ({
 
       {openModal && (
         <Modal
-          product={product}
-          navigation={navigation}
           deleteHandler={deleteHandler}
           setOpenModal={setOpenModal}
+          render={
+            <View style={{ textAlign: "center" }}>
+              <Text
+                style={{
+                  fontWeight: "900",
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                }}
+                onPress={() =>
+                  navigation.navigate("updateproduct", { id: product._id })
+                }
+              >
+                Edit
+              </Text>
+              <Button
+                textColor={colors.color3}
+                onPress={() => deleteHandler({ id: product._id })}
+              >
+                Delete
+              </Button>
+            </View>
+          }
         />
       )}
     </>
