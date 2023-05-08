@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     backgroundColor: colors.color2,
-    elevation: 5,
+    elevation: .8,
     margin: 10,
     padding: 15,
     flexDirection: "row",
