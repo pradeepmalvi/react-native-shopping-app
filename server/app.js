@@ -5,11 +5,14 @@ import { config } from "dotenv";
 import user from "./routes/user.js";
 
 config({
-  path: "./data/config.env",
+  path: "./.env",
 });
 
 export const app = express();
 
+// Using middleware
+app.use(express.json());
+
+app.get("/", (req, res) => res.send({ status: "API running!" }));
+
 app.use("/api/v1/user", user);
-
-
