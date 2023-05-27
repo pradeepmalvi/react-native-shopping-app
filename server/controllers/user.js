@@ -1,4 +1,5 @@
 import { User } from "../models/user.js";
+import ErrorHandler from "../utils/error.js";
 
 export const login = async (req, res, next) => {
   const { email, password } = req.body;
@@ -7,16 +8,13 @@ export const login = async (req, res, next) => {
 
   // Handle error
   if (!user) {
-    return res.status(400).json({ success: false, message: "Incorrect Email" });
+    return next(new ErrorHandler("Incorrect Email", 400));
   }
 
   const isMatched = await user.camparePassword(password);
-  console.log("isMatched", isMatched);
 
   if (!isMatched) {
-    return res
-      .status(400)
-      .json({ success: false, message: "Incorrect Password" });
+    return next(new ErrorHandler("Incorrect Password", 400));
   }
 
   res.status(200).json({
