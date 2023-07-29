@@ -9,19 +9,24 @@ export const login = asyncError(async (req, res, next) => {
 
   // Handle error
   if (!user) {
-    return next(new ErrorHandler("Incorrect Email", 400));
+    return next(new ErrorHandler("Incorrect Email or Password", 400));
   }
 
   const isMatched = await user.camparePassword(password);
 
   if (!isMatched) {
-    return next(new ErrorHandler("Incorrect Password", 400));
+    return next(new ErrorHandler("Incorrect Email or Password", 400));
   }
 
-  res.status(200).json({
-    success: true,
-    message: `Welcome Back, ${user.name} `,
-  });
+  const token = user.generateToken();
+
+  res
+    .status(200)
+    .cookie("token", token, cookieOptions)
+    .json({
+      success: true,
+      message: `Welcome Back, ${user.name} `,
+    });
 });
 
 export const signup = asyncError(async (req, res, next) => {
@@ -29,7 +34,42 @@ export const signup = asyncError(async (req, res, next) => {
 
   // Add cloudinary here
 
-  await User.create({ name, email, password, address, city, country, pinCode });
+  const user = await User.create({
+    name,
+    email,
+    password,
+    address,
+    city,
+    country,
+    pinCode,
+  });
 
-  res.status(201).json({ success: true, message: "Registered Successfully" });
+  const token = user.generateToken();
+
+  res
+    .status(201)
+    .cookie("token", token, cookieOptions)
+    .json({ success: true, message: "Registered Successfully" });
 });
+
+export const logout = asyncError(async (req, res, next) => {
+  res
+    .status(200)
+    .cookie("token", "", {
+      ...cookieOptions,
+      expires: new Date(Date.now()),
+    })
+    .json({ success: true, message: "Logged Out Successfully!" });
+});
+
+export const getMyProfile = asyncError(async (req, res, next) => {
+  const user = await User.findById(req.user._id);
+  res.status(200).json({ success: true, user });
+});
+
+export const cookieOptions = {
+  expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+  secure: process.env.NODE_ENV === "development" ? false : true,
+  httpOnly: process.env.NODE_ENV === "development" ? false : true,
+  sameSite: process.env.NODE_ENV === "development" ? false : "none",
+};

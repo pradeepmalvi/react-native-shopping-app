@@ -1,9 +1,10 @@
 import express from "express";
 import { config } from "dotenv";
+import { errorMiddleware } from "./middlewares/error.js";
+import cookieParser from "cookie-parser";
 
 // Importing Routers
 import user from "./routes/user.js";
-import { errorMiddleware } from "./middlewares/error.js";
 
 config({
   path: "./.env",
@@ -13,6 +14,7 @@ export const app = express();
 
 // Using middleware
 app.use(express.json());
+app.use(cookieParser());
 
 app.get("/", (req, res) => res.send({ status: "API running!" }));
 
