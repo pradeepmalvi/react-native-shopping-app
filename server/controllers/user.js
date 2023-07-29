@@ -1,7 +1,8 @@
+import { asyncError } from "../middlewares/error.js";
 import { User } from "../models/user.js";
 import ErrorHandler from "../utils/error.js";
 
-export const login = async (req, res, next) => {
+export const login = asyncError(async (req, res, next) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email }).select("+password");
@@ -21,9 +22,9 @@ export const login = async (req, res, next) => {
     success: true,
     message: `Welcome Back, ${user.name} `,
   });
-};
+});
 
-export const signup = async (req, res, next) => {
+export const signup = asyncError(async (req, res, next) => {
   const { name, email, password, address, city, country, pinCode } = req.body;
 
   // Add cloudinary here
@@ -31,4 +32,4 @@ export const signup = async (req, res, next) => {
   await User.create({ name, email, password, address, city, country, pinCode });
 
   res.status(201).json({ success: true, message: "Registered Successfully" });
-};
+});
